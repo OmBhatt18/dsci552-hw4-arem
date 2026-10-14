@@ -1,8 +1,9 @@
-# assignment handout (course material, not part of the submission)
-Homework4.pdf
-
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
+*~
 .DS_Store
-Thumbs.db
+.vscode/
+.idea/
+*.pdf
+*.zip

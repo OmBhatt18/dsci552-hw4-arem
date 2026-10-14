@@ -7796,13 +7796,40 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3be32337">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=836c8268">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="DSCI-552-%E2%80%94-Homework-4">DSCI 552 — Homework 4<a class="anchor-link" href="#DSCI-552-%E2%80%94-Homework-4">¶</a></h1><p><strong>Om Bhatt</strong></p>
+<center><h1>Bhatt_Om_HW4</h1></center>
+<br/>
+<br/>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d8730d6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Name: Om Bhatt
+<br/>
+Github Username: OmBhatt18
+<br/>
+USC ID: 7536194801</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fbe4a8e3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <table>
 <thead>
 <tr>
@@ -7837,11 +7864,11 @@ a.anchor-link {
 </tr>
 </tbody>
 </table>
-<p>The AReM data is in <code>data/AReM/</code> (one folder per activity), so the notebook runs from the repository root as-is.</p>
+<p>The notebook reads the AReM data from <code>../data/AReM/</code> (one folder per activity) and saves its CSV outputs to <code>../output/</code>, both relative to the <code>notebooks/</code> folder.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9a6ad87f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=56ffa514">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7870,7 +7897,9 @@ a.anchor-link {
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.width'</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
-<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="s1">'AReM'</span><span class="p">)</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'..'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">,</span> <span class="s1">'AReM'</span><span class="p">)</span>
+<span class="n">OUT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'..'</span><span class="p">,</span> <span class="s1">'output'</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">OUT_DIR</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ACTIVITIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'bending1'</span><span class="p">,</span><span class="s1">'bending2'</span><span class="p">,</span><span class="s1">'cycling'</span><span class="p">,</span><span class="s1">'lying'</span><span class="p">,</span><span class="s1">'sitting'</span><span class="p">,</span><span class="s1">'standing'</span><span class="p">,</span><span class="s1">'walking'</span><span class="p">]</span>
 <span class="n">SERIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'avg_rss12'</span><span class="p">,</span> <span class="s1">'var_rss12'</span><span class="p">,</span> <span class="s1">'avg_rss13'</span><span class="p">,</span> <span class="s1">'var_rss13'</span><span class="p">,</span> <span class="s1">'avg_rss23'</span><span class="p">,</span> <span class="s1">'var_rss23'</span><span class="p">]</span>
 <span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span>
@@ -7884,7 +7913,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b7e1d8a2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0a8e3704">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7896,7 +7925,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6c340fce">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2f6914ec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7946,7 +7975,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4a6a7c5a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92580f67">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7959,7 +7988,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6280d364">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a37b0930">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8071,7 +8100,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa4bc5db">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fbebafab">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8083,7 +8112,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bfdbe68f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=52435d0f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8115,7 +8144,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=710b5dde">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3eb435a1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8325,7 +8354,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5cd52b36">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=45f69839">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8365,7 +8394,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4afe505">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3652759a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8377,7 +8406,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c96bd793">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=38db0b2e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8413,7 +8442,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9245643">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=81da0994">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8431,7 +8460,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=652e4630">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=853aab61">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8441,7 +8470,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6cfff62b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=318ce38b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8572,7 +8601,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9651dd0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9fdf4c95">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8585,7 +8614,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e09031da">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4acbbaa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8595,7 +8624,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=13fa5b52">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c9915448">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8633,7 +8662,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2a69a3e6">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4984d860">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8706,7 +8735,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2b3485c7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=222af0f8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8720,7 +8749,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0963a8f4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=94907183">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8733,7 +8762,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c076bc84">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=28fc9ec1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8748,7 +8777,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1f0079f2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4515688">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8759,7 +8788,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2d6c1721">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46bcee0c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8769,7 +8798,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b167d922">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=db99499e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8791,7 +8820,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=408eb28b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b535465b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8821,7 +8850,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9078ac08">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=abe81da6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8830,6 +8859,7 @@ test:  4 bending / 15 other
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">cv_rfe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">rfe_cv</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">L_VALUES</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cv_rfe</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUT_DIR</span><span class="p">,</span> <span class="s1">'binary_rfe_cv.csv'</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># ties: fewest features first, then smallest l</span>
 <span class="n">best_a</span> <span class="o">=</span> <span class="n">cv_rfe</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">'cv_acc'</span><span class="p">,</span> <span class="s1">'p'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">L_A</span><span class="p">,</span> <span class="n">P_A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">best_a</span><span class="o">.</span><span class="n">l</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">best_a</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
@@ -8852,7 +8882,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=20c93bee">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=949f0c94">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9008,7 +9038,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=30e5933f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=adc3b647">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9019,7 +9049,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0d852325">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=478b5af7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9029,7 +9059,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=233bd801">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1bf58921">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9056,7 +9086,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=73c315d9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6d858bbe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9254,7 +9284,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07a76d4e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d455f402">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9267,7 +9297,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3d37eaf2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c06d783">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9277,7 +9307,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=bf97ad46">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=40412d55">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9310,7 +9340,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=98b18823">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=86a4e268">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9354,7 +9384,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=76c6706f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=15f9a4e4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9423,7 +9453,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=57beaba7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=773ff310">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9434,7 +9464,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a6d50cb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=763d0545">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9444,7 +9474,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0ecc5f65">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7b59cb8d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9512,7 +9542,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f2097022">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c8840e1e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9541,193 +9571,193 @@ test:  4 bending / 15 other
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style type="text/css">
-#T_b38e9_row3_col0, #T_b38e9_row3_col1, #T_b38e9_row3_col2, #T_b38e9_row3_col3, #T_b38e9_row3_col4, #T_b38e9_row3_col5, #T_b38e9_row4_col0, #T_b38e9_row4_col1, #T_b38e9_row4_col2, #T_b38e9_row4_col3, #T_b38e9_row4_col4, #T_b38e9_row4_col5, #T_b38e9_row6_col0, #T_b38e9_row6_col1, #T_b38e9_row6_col2, #T_b38e9_row6_col3, #T_b38e9_row6_col4, #T_b38e9_row6_col5 {
+#T_db01c_row3_col0, #T_db01c_row3_col1, #T_db01c_row3_col2, #T_db01c_row3_col3, #T_db01c_row3_col4, #T_db01c_row3_col5, #T_db01c_row4_col0, #T_db01c_row4_col1, #T_db01c_row4_col2, #T_db01c_row4_col3, #T_db01c_row4_col4, #T_db01c_row4_col5, #T_db01c_row6_col0, #T_db01c_row6_col1, #T_db01c_row6_col2, #T_db01c_row6_col3, #T_db01c_row6_col4, #T_db01c_row6_col5 {
   background-color: #f8d0d0;
 }
 </style>
-<table id="T_b38e9">
+<table id="T_db01c">
 <thead>
 <tr>
 <th class="blank level0"> </th>
-<th class="col_heading level0 col0" id="T_b38e9_level0_col0">activity</th>
-<th class="col_heading level0 col1" id="T_b38e9_level0_col1">file</th>
-<th class="col_heading level0 col2" id="T_b38e9_level0_col2">mean5_1</th>
-<th class="col_heading level0 col3" id="T_b38e9_level0_col3">P(bending)</th>
-<th class="col_heading level0 col4" id="T_b38e9_level0_col4">true</th>
-<th class="col_heading level0 col5" id="T_b38e9_level0_col5">predicted</th>
+<th class="col_heading level0 col0" id="T_db01c_level0_col0">activity</th>
+<th class="col_heading level0 col1" id="T_db01c_level0_col1">file</th>
+<th class="col_heading level0 col2" id="T_db01c_level0_col2">mean5_1</th>
+<th class="col_heading level0 col3" id="T_db01c_level0_col3">P(bending)</th>
+<th class="col_heading level0 col4" id="T_db01c_level0_col4">true</th>
+<th class="col_heading level0 col5" id="T_db01c_level0_col5">predicted</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="row_heading level0 row0" id="T_b38e9_level0_row0">0</th>
-<td class="data row0 col0" id="T_b38e9_row0_col0">bending1</td>
-<td class="data row0 col1" id="T_b38e9_row0_col1">1</td>
-<td class="data row0 col2" id="T_b38e9_row0_col2">34.051000</td>
-<td class="data row0 col3" id="T_b38e9_row0_col3">1.000000</td>
-<td class="data row0 col4" id="T_b38e9_row0_col4">bending</td>
-<td class="data row0 col5" id="T_b38e9_row0_col5">bending</td>
+<th class="row_heading level0 row0" id="T_db01c_level0_row0">0</th>
+<td class="data row0 col0" id="T_db01c_row0_col0">bending1</td>
+<td class="data row0 col1" id="T_db01c_row0_col1">1</td>
+<td class="data row0 col2" id="T_db01c_row0_col2">34.051000</td>
+<td class="data row0 col3" id="T_db01c_row0_col3">1.000000</td>
+<td class="data row0 col4" id="T_db01c_row0_col4">bending</td>
+<td class="data row0 col5" id="T_db01c_row0_col5">bending</td>
 </tr>
 <tr>
-<th class="row_heading level0 row1" id="T_b38e9_level0_row1">1</th>
-<td class="data row1 col0" id="T_b38e9_row1_col0">bending1</td>
-<td class="data row1 col1" id="T_b38e9_row1_col1">2</td>
-<td class="data row1 col2" id="T_b38e9_row1_col2">33.483000</td>
-<td class="data row1 col3" id="T_b38e9_row1_col3">1.000000</td>
-<td class="data row1 col4" id="T_b38e9_row1_col4">bending</td>
-<td class="data row1 col5" id="T_b38e9_row1_col5">bending</td>
+<th class="row_heading level0 row1" id="T_db01c_level0_row1">1</th>
+<td class="data row1 col0" id="T_db01c_row1_col0">bending1</td>
+<td class="data row1 col1" id="T_db01c_row1_col1">2</td>
+<td class="data row1 col2" id="T_db01c_row1_col2">33.483000</td>
+<td class="data row1 col3" id="T_db01c_row1_col3">1.000000</td>
+<td class="data row1 col4" id="T_db01c_row1_col4">bending</td>
+<td class="data row1 col5" id="T_db01c_row1_col5">bending</td>
 </tr>
 <tr>
-<th class="row_heading level0 row2" id="T_b38e9_level0_row2">7</th>
-<td class="data row2 col0" id="T_b38e9_row2_col0">bending2</td>
-<td class="data row2 col1" id="T_b38e9_row2_col1">1</td>
-<td class="data row2 col2" id="T_b38e9_row2_col2">25.928000</td>
-<td class="data row2 col3" id="T_b38e9_row2_col3">1.000000</td>
-<td class="data row2 col4" id="T_b38e9_row2_col4">bending</td>
-<td class="data row2 col5" id="T_b38e9_row2_col5">bending</td>
+<th class="row_heading level0 row2" id="T_db01c_level0_row2">7</th>
+<td class="data row2 col0" id="T_db01c_row2_col0">bending2</td>
+<td class="data row2 col1" id="T_db01c_row2_col1">1</td>
+<td class="data row2 col2" id="T_db01c_row2_col2">25.928000</td>
+<td class="data row2 col3" id="T_db01c_row2_col3">1.000000</td>
+<td class="data row2 col4" id="T_db01c_row2_col4">bending</td>
+<td class="data row2 col5" id="T_db01c_row2_col5">bending</td>
 </tr>
 <tr>
-<th class="row_heading level0 row3" id="T_b38e9_level0_row3">8</th>
-<td class="data row3 col0" id="T_b38e9_row3_col0">bending2</td>
-<td class="data row3 col1" id="T_b38e9_row3_col1">2</td>
-<td class="data row3 col2" id="T_b38e9_row3_col2">17.339000</td>
-<td class="data row3 col3" id="T_b38e9_row3_col3">0.007000</td>
-<td class="data row3 col4" id="T_b38e9_row3_col4">bending</td>
-<td class="data row3 col5" id="T_b38e9_row3_col5">other</td>
+<th class="row_heading level0 row3" id="T_db01c_level0_row3">8</th>
+<td class="data row3 col0" id="T_db01c_row3_col0">bending2</td>
+<td class="data row3 col1" id="T_db01c_row3_col1">2</td>
+<td class="data row3 col2" id="T_db01c_row3_col2">17.339000</td>
+<td class="data row3 col3" id="T_db01c_row3_col3">0.007000</td>
+<td class="data row3 col4" id="T_db01c_row3_col4">bending</td>
+<td class="data row3 col5" id="T_db01c_row3_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row4" id="T_b38e9_level0_row4">13</th>
-<td class="data row4 col0" id="T_b38e9_row4_col0">cycling</td>
-<td class="data row4 col1" id="T_b38e9_row4_col1">1</td>
-<td class="data row4 col2" id="T_b38e9_row4_col2">19.118000</td>
-<td class="data row4 col3" id="T_b38e9_row4_col3">0.571000</td>
-<td class="data row4 col4" id="T_b38e9_row4_col4">other</td>
-<td class="data row4 col5" id="T_b38e9_row4_col5">bending</td>
+<th class="row_heading level0 row4" id="T_db01c_level0_row4">13</th>
+<td class="data row4 col0" id="T_db01c_row4_col0">cycling</td>
+<td class="data row4 col1" id="T_db01c_row4_col1">1</td>
+<td class="data row4 col2" id="T_db01c_row4_col2">19.118000</td>
+<td class="data row4 col3" id="T_db01c_row4_col3">0.571000</td>
+<td class="data row4 col4" id="T_db01c_row4_col4">other</td>
+<td class="data row4 col5" id="T_db01c_row4_col5">bending</td>
 </tr>
 <tr>
-<th class="row_heading level0 row5" id="T_b38e9_level0_row5">14</th>
-<td class="data row5 col0" id="T_b38e9_row5_col0">cycling</td>
-<td class="data row5 col1" id="T_b38e9_row5_col1">2</td>
-<td class="data row5 col2" id="T_b38e9_row5_col2">18.779000</td>
-<td class="data row5 col3" id="T_b38e9_row5_col3">0.329000</td>
-<td class="data row5 col4" id="T_b38e9_row5_col4">other</td>
-<td class="data row5 col5" id="T_b38e9_row5_col5">other</td>
+<th class="row_heading level0 row5" id="T_db01c_level0_row5">14</th>
+<td class="data row5 col0" id="T_db01c_row5_col0">cycling</td>
+<td class="data row5 col1" id="T_db01c_row5_col1">2</td>
+<td class="data row5 col2" id="T_db01c_row5_col2">18.779000</td>
+<td class="data row5 col3" id="T_db01c_row5_col3">0.329000</td>
+<td class="data row5 col4" id="T_db01c_row5_col4">other</td>
+<td class="data row5 col5" id="T_db01c_row5_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row6" id="T_b38e9_level0_row6">15</th>
-<td class="data row6 col0" id="T_b38e9_row6_col0">cycling</td>
-<td class="data row6 col1" id="T_b38e9_row6_col1">3</td>
-<td class="data row6 col2" id="T_b38e9_row6_col2">19.793000</td>
-<td class="data row6 col3" id="T_b38e9_row6_col3">0.907000</td>
-<td class="data row6 col4" id="T_b38e9_row6_col4">other</td>
-<td class="data row6 col5" id="T_b38e9_row6_col5">bending</td>
+<th class="row_heading level0 row6" id="T_db01c_level0_row6">15</th>
+<td class="data row6 col0" id="T_db01c_row6_col0">cycling</td>
+<td class="data row6 col1" id="T_db01c_row6_col1">3</td>
+<td class="data row6 col2" id="T_db01c_row6_col2">19.793000</td>
+<td class="data row6 col3" id="T_db01c_row6_col3">0.907000</td>
+<td class="data row6 col4" id="T_db01c_row6_col4">other</td>
+<td class="data row6 col5" id="T_db01c_row6_col5">bending</td>
 </tr>
 <tr>
-<th class="row_heading level0 row7" id="T_b38e9_level0_row7">28</th>
-<td class="data row7 col0" id="T_b38e9_row7_col0">lying</td>
-<td class="data row7 col1" id="T_b38e9_row7_col1">1</td>
-<td class="data row7 col2" id="T_b38e9_row7_col2">9.313000</td>
-<td class="data row7 col3" id="T_b38e9_row7_col3">0.000000</td>
-<td class="data row7 col4" id="T_b38e9_row7_col4">other</td>
-<td class="data row7 col5" id="T_b38e9_row7_col5">other</td>
+<th class="row_heading level0 row7" id="T_db01c_level0_row7">28</th>
+<td class="data row7 col0" id="T_db01c_row7_col0">lying</td>
+<td class="data row7 col1" id="T_db01c_row7_col1">1</td>
+<td class="data row7 col2" id="T_db01c_row7_col2">9.313000</td>
+<td class="data row7 col3" id="T_db01c_row7_col3">0.000000</td>
+<td class="data row7 col4" id="T_db01c_row7_col4">other</td>
+<td class="data row7 col5" id="T_db01c_row7_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row8" id="T_b38e9_level0_row8">29</th>
-<td class="data row8 col0" id="T_b38e9_row8_col0">lying</td>
-<td class="data row8 col1" id="T_b38e9_row8_col1">2</td>
-<td class="data row8 col2" id="T_b38e9_row8_col2">7.792000</td>
-<td class="data row8 col3" id="T_b38e9_row8_col3">0.000000</td>
-<td class="data row8 col4" id="T_b38e9_row8_col4">other</td>
-<td class="data row8 col5" id="T_b38e9_row8_col5">other</td>
+<th class="row_heading level0 row8" id="T_db01c_level0_row8">29</th>
+<td class="data row8 col0" id="T_db01c_row8_col0">lying</td>
+<td class="data row8 col1" id="T_db01c_row8_col1">2</td>
+<td class="data row8 col2" id="T_db01c_row8_col2">7.792000</td>
+<td class="data row8 col3" id="T_db01c_row8_col3">0.000000</td>
+<td class="data row8 col4" id="T_db01c_row8_col4">other</td>
+<td class="data row8 col5" id="T_db01c_row8_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row9" id="T_b38e9_level0_row9">30</th>
-<td class="data row9 col0" id="T_b38e9_row9_col0">lying</td>
-<td class="data row9 col1" id="T_b38e9_row9_col1">3</td>
-<td class="data row9 col2" id="T_b38e9_row9_col2">3.784000</td>
-<td class="data row9 col3" id="T_b38e9_row9_col3">0.000000</td>
-<td class="data row9 col4" id="T_b38e9_row9_col4">other</td>
-<td class="data row9 col5" id="T_b38e9_row9_col5">other</td>
+<th class="row_heading level0 row9" id="T_db01c_level0_row9">30</th>
+<td class="data row9 col0" id="T_db01c_row9_col0">lying</td>
+<td class="data row9 col1" id="T_db01c_row9_col1">3</td>
+<td class="data row9 col2" id="T_db01c_row9_col2">3.784000</td>
+<td class="data row9 col3" id="T_db01c_row9_col3">0.000000</td>
+<td class="data row9 col4" id="T_db01c_row9_col4">other</td>
+<td class="data row9 col5" id="T_db01c_row9_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row10" id="T_b38e9_level0_row10">43</th>
-<td class="data row10 col0" id="T_b38e9_row10_col0">sitting</td>
-<td class="data row10 col1" id="T_b38e9_row10_col1">1</td>
-<td class="data row10 col2" id="T_b38e9_row10_col2">9.861000</td>
-<td class="data row10 col3" id="T_b38e9_row10_col3">0.000000</td>
-<td class="data row10 col4" id="T_b38e9_row10_col4">other</td>
-<td class="data row10 col5" id="T_b38e9_row10_col5">other</td>
+<th class="row_heading level0 row10" id="T_db01c_level0_row10">43</th>
+<td class="data row10 col0" id="T_db01c_row10_col0">sitting</td>
+<td class="data row10 col1" id="T_db01c_row10_col1">1</td>
+<td class="data row10 col2" id="T_db01c_row10_col2">9.861000</td>
+<td class="data row10 col3" id="T_db01c_row10_col3">0.000000</td>
+<td class="data row10 col4" id="T_db01c_row10_col4">other</td>
+<td class="data row10 col5" id="T_db01c_row10_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row11" id="T_b38e9_level0_row11">44</th>
-<td class="data row11 col0" id="T_b38e9_row11_col0">sitting</td>
-<td class="data row11 col1" id="T_b38e9_row11_col1">2</td>
-<td class="data row11 col2" id="T_b38e9_row11_col2">18.204000</td>
-<td class="data row11 col3" id="T_b38e9_row11_col3">0.082000</td>
-<td class="data row11 col4" id="T_b38e9_row11_col4">other</td>
-<td class="data row11 col5" id="T_b38e9_row11_col5">other</td>
+<th class="row_heading level0 row11" id="T_db01c_level0_row11">44</th>
+<td class="data row11 col0" id="T_db01c_row11_col0">sitting</td>
+<td class="data row11 col1" id="T_db01c_row11_col1">2</td>
+<td class="data row11 col2" id="T_db01c_row11_col2">18.204000</td>
+<td class="data row11 col3" id="T_db01c_row11_col3">0.082000</td>
+<td class="data row11 col4" id="T_db01c_row11_col4">other</td>
+<td class="data row11 col5" id="T_db01c_row11_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row12" id="T_b38e9_level0_row12">45</th>
-<td class="data row12 col0" id="T_b38e9_row12_col0">sitting</td>
-<td class="data row12 col1" id="T_b38e9_row12_col1">3</td>
-<td class="data row12 col2" id="T_b38e9_row12_col2">18.868000</td>
-<td class="data row12 col3" id="T_b38e9_row12_col3">0.389000</td>
-<td class="data row12 col4" id="T_b38e9_row12_col4">other</td>
-<td class="data row12 col5" id="T_b38e9_row12_col5">other</td>
+<th class="row_heading level0 row12" id="T_db01c_level0_row12">45</th>
+<td class="data row12 col0" id="T_db01c_row12_col0">sitting</td>
+<td class="data row12 col1" id="T_db01c_row12_col1">3</td>
+<td class="data row12 col2" id="T_db01c_row12_col2">18.868000</td>
+<td class="data row12 col3" id="T_db01c_row12_col3">0.389000</td>
+<td class="data row12 col4" id="T_db01c_row12_col4">other</td>
+<td class="data row12 col5" id="T_db01c_row12_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row13" id="T_b38e9_level0_row13">58</th>
-<td class="data row13 col0" id="T_b38e9_row13_col0">standing</td>
-<td class="data row13 col1" id="T_b38e9_row13_col1">1</td>
-<td class="data row13 col2" id="T_b38e9_row13_col2">17.544000</td>
-<td class="data row13 col3" id="T_b38e9_row13_col3">0.013000</td>
-<td class="data row13 col4" id="T_b38e9_row13_col4">other</td>
-<td class="data row13 col5" id="T_b38e9_row13_col5">other</td>
+<th class="row_heading level0 row13" id="T_db01c_level0_row13">58</th>
+<td class="data row13 col0" id="T_db01c_row13_col0">standing</td>
+<td class="data row13 col1" id="T_db01c_row13_col1">1</td>
+<td class="data row13 col2" id="T_db01c_row13_col2">17.544000</td>
+<td class="data row13 col3" id="T_db01c_row13_col3">0.013000</td>
+<td class="data row13 col4" id="T_db01c_row13_col4">other</td>
+<td class="data row13 col5" id="T_db01c_row13_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row14" id="T_b38e9_level0_row14">59</th>
-<td class="data row14 col0" id="T_b38e9_row14_col0">standing</td>
-<td class="data row14 col1" id="T_b38e9_row14_col1">2</td>
-<td class="data row14 col2" id="T_b38e9_row14_col2">14.124000</td>
-<td class="data row14 col3" id="T_b38e9_row14_col3">0.000000</td>
-<td class="data row14 col4" id="T_b38e9_row14_col4">other</td>
-<td class="data row14 col5" id="T_b38e9_row14_col5">other</td>
+<th class="row_heading level0 row14" id="T_db01c_level0_row14">59</th>
+<td class="data row14 col0" id="T_db01c_row14_col0">standing</td>
+<td class="data row14 col1" id="T_db01c_row14_col1">2</td>
+<td class="data row14 col2" id="T_db01c_row14_col2">14.124000</td>
+<td class="data row14 col3" id="T_db01c_row14_col3">0.000000</td>
+<td class="data row14 col4" id="T_db01c_row14_col4">other</td>
+<td class="data row14 col5" id="T_db01c_row14_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row15" id="T_b38e9_level0_row15">60</th>
-<td class="data row15 col0" id="T_b38e9_row15_col0">standing</td>
-<td class="data row15 col1" id="T_b38e9_row15_col1">3</td>
-<td class="data row15 col2" id="T_b38e9_row15_col2">16.378000</td>
-<td class="data row15 col3" id="T_b38e9_row15_col3">0.000000</td>
-<td class="data row15 col4" id="T_b38e9_row15_col4">other</td>
-<td class="data row15 col5" id="T_b38e9_row15_col5">other</td>
+<th class="row_heading level0 row15" id="T_db01c_level0_row15">60</th>
+<td class="data row15 col0" id="T_db01c_row15_col0">standing</td>
+<td class="data row15 col1" id="T_db01c_row15_col1">3</td>
+<td class="data row15 col2" id="T_db01c_row15_col2">16.378000</td>
+<td class="data row15 col3" id="T_db01c_row15_col3">0.000000</td>
+<td class="data row15 col4" id="T_db01c_row15_col4">other</td>
+<td class="data row15 col5" id="T_db01c_row15_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row16" id="T_b38e9_level0_row16">73</th>
-<td class="data row16 col0" id="T_b38e9_row16_col0">walking</td>
-<td class="data row16 col1" id="T_b38e9_row16_col1">1</td>
-<td class="data row16 col2" id="T_b38e9_row16_col2">16.426000</td>
-<td class="data row16 col3" id="T_b38e9_row16_col3">0.000000</td>
-<td class="data row16 col4" id="T_b38e9_row16_col4">other</td>
-<td class="data row16 col5" id="T_b38e9_row16_col5">other</td>
+<th class="row_heading level0 row16" id="T_db01c_level0_row16">73</th>
+<td class="data row16 col0" id="T_db01c_row16_col0">walking</td>
+<td class="data row16 col1" id="T_db01c_row16_col1">1</td>
+<td class="data row16 col2" id="T_db01c_row16_col2">16.426000</td>
+<td class="data row16 col3" id="T_db01c_row16_col3">0.000000</td>
+<td class="data row16 col4" id="T_db01c_row16_col4">other</td>
+<td class="data row16 col5" id="T_db01c_row16_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row17" id="T_b38e9_level0_row17">74</th>
-<td class="data row17 col0" id="T_b38e9_row17_col0">walking</td>
-<td class="data row17 col1" id="T_b38e9_row17_col1">2</td>
-<td class="data row17 col2" id="T_b38e9_row17_col2">16.099000</td>
-<td class="data row17 col3" id="T_b38e9_row17_col3">0.000000</td>
-<td class="data row17 col4" id="T_b38e9_row17_col4">other</td>
-<td class="data row17 col5" id="T_b38e9_row17_col5">other</td>
+<th class="row_heading level0 row17" id="T_db01c_level0_row17">74</th>
+<td class="data row17 col0" id="T_db01c_row17_col0">walking</td>
+<td class="data row17 col1" id="T_db01c_row17_col1">2</td>
+<td class="data row17 col2" id="T_db01c_row17_col2">16.099000</td>
+<td class="data row17 col3" id="T_db01c_row17_col3">0.000000</td>
+<td class="data row17 col4" id="T_db01c_row17_col4">other</td>
+<td class="data row17 col5" id="T_db01c_row17_col5">other</td>
 </tr>
 <tr>
-<th class="row_heading level0 row18" id="T_b38e9_level0_row18">75</th>
-<td class="data row18 col0" id="T_b38e9_row18_col0">walking</td>
-<td class="data row18 col1" id="T_b38e9_row18_col1">3</td>
-<td class="data row18 col2" id="T_b38e9_row18_col2">16.054000</td>
-<td class="data row18 col3" id="T_b38e9_row18_col3">0.000000</td>
-<td class="data row18 col4" id="T_b38e9_row18_col4">other</td>
-<td class="data row18 col5" id="T_b38e9_row18_col5">other</td>
+<th class="row_heading level0 row18" id="T_db01c_level0_row18">75</th>
+<td class="data row18 col0" id="T_db01c_row18_col0">walking</td>
+<td class="data row18 col1" id="T_db01c_row18_col1">3</td>
+<td class="data row18 col2" id="T_db01c_row18_col2">16.054000</td>
+<td class="data row18 col3" id="T_db01c_row18_col3">0.000000</td>
+<td class="data row18 col4" id="T_db01c_row18_col4">other</td>
+<td class="data row18 col5" id="T_db01c_row18_col5">other</td>
 </tr>
 </tbody>
 </table>
@@ -9736,7 +9766,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1abea739">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba859017">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9757,7 +9787,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0dcfa9e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e81e5dad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9767,7 +9797,7 @@ test:  4 bending / 15 other
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=682d2c4b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ea4ef5bb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9872,7 +9902,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3508d4a2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7026018f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9888,7 +9918,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8e8804d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=35fb866d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9899,7 +9929,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=baaf6345">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=60efe98a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9910,7 +9940,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a389ddd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=664ffc52">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9922,7 +9952,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=02dc87a9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=19979fa2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9954,7 +9984,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ca96832a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4a171a64">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10025,7 +10055,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a1af46b4">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dc8eb8d0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10055,7 +10085,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f910bef">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5aaf700b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10103,7 +10133,7 @@ Name: separable?, dtype: bool
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=561ca61c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7783eeb2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10116,7 +10146,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4d261c7a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c4743c07">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10304,7 +10334,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6c5e28ff">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1f0c70fb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10312,7 +10342,9 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 <div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Xtr_b</span><span class="p">,</span> <span class="n">ytr_b</span><span class="p">,</span> <span class="n">Xte_b</span><span class="p">,</span> <span class="n">yte_b</span> <span class="o">=</span> <span class="n">split_xy</span><span class="p">(</span><span class="n">FEATS</span><span class="p">[</span><span class="n">L_B</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">cv_l1</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUT_DIR</span><span class="p">,</span> <span class="s1">'binary_l1_cv.csv'</span><span class="p">))</span>
+
+<span class="n">Xtr_b</span><span class="p">,</span> <span class="n">ytr_b</span><span class="p">,</span> <span class="n">Xte_b</span><span class="p">,</span> <span class="n">yte_b</span> <span class="o">=</span> <span class="n">split_xy</span><span class="p">(</span><span class="n">FEATS</span><span class="p">[</span><span class="n">L_B</span><span class="p">])</span>
 <span class="n">model_b</span> <span class="o">=</span> <span class="n">l1_pipe</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">lr__C</span><span class="o">=</span><span class="n">C_B</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtr_b</span><span class="p">,</span> <span class="n">ytr_b</span><span class="p">)</span>
 <span class="n">coef_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">model_b</span><span class="p">[</span><span class="s1">'lr'</span><span class="p">]</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">Xtr_b</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="n">nz</span> <span class="o">=</span> <span class="n">coef_b</span><span class="p">[</span><span class="n">coef_b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
@@ -10398,7 +10430,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=28da32fd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=625db3b7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10408,7 +10440,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=51ffcfed">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a73ac3dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10490,7 +10522,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c747905e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07f70047">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10502,7 +10534,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7465bb2d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e40d73c0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10513,7 +10545,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=59fbc388">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=770a963d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10677,7 +10709,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c48f033">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=676034d4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10699,7 +10731,7 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=25e21104">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b09e7e15">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10736,6 +10768,8 @@ so <strong>C = 1/λ</strong> is the budget: small C = strong penalty = few featu
     <span class="k">return</span> <span class="p">{</span><span class="s1">'test error'</span><span class="p">:</span> <span class="n">err</span><span class="p">,</span> <span class="s1">'train error'</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">ytr</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtr</span><span class="p">)),</span>
             <span class="s1">'micro AUC'</span><span class="p">:</span> <span class="n">micro</span><span class="p">,</span> <span class="s1">'macro AUC'</span><span class="p">:</span> <span class="n">macro</span><span class="p">,</span>
             <span class="s1">'Hand-Till AUC'</span><span class="p">:</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">yte</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s1">'ovo'</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">classes</span><span class="p">)}</span>
+
+<span class="n">cv_mn</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUT_DIR</span><span class="p">,</span> <span class="s1">'multiclass_l1_cv.csv'</span><span class="p">))</span>
 
 <span class="n">Xtr_c</span><span class="p">,</span> <span class="n">ytr_c</span><span class="p">,</span> <span class="n">Xte_c</span><span class="p">,</span> <span class="n">yte_c</span> <span class="o">=</span> <span class="n">split_xy</span><span class="p">(</span><span class="n">FEATS</span><span class="p">[</span><span class="n">L_C</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">'multi'</span><span class="p">)</span>
 <span class="n">model_c</span> <span class="o">=</span> <span class="n">mn_pipe</span><span class="p">()</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">lr__C</span><span class="o">=</span><span class="n">C_C</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtr_c</span><span class="p">,</span> <span class="n">ytr_c</span><span class="p">)</span>
@@ -10779,7 +10813,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3fdf410d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83f5cad7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10796,7 +10830,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=70669c86">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a4e84839">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10811,7 +10845,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6e24412d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=db2cf676">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10864,7 +10898,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=974b494e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=719780d0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10896,7 +10930,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=16c392df">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=67957564">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10904,7 +10938,9 @@ dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">res_nb</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">cv_nb</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'model'</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUT_DIR</span><span class="p">,</span> <span class="s1">'multiclass_nb_cv.csv'</span><span class="p">))</span>
+
+<span class="n">res_nb</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span> <span class="ow">in</span> <span class="n">NB_MODELS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">l</span><span class="p">,</span> <span class="n">param</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">best_nb</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
     <span class="n">Xtr</span><span class="p">,</span> <span class="n">ytr</span><span class="p">,</span> <span class="n">Xte</span><span class="p">,</span> <span class="n">yte</span> <span class="o">=</span> <span class="n">split_xy</span><span class="p">(</span><span class="n">FEATS</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="s1">'multi'</span><span class="p">)</span>
@@ -10934,7 +10970,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a8db9156">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8208a259">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10950,7 +10986,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b9519b9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5cad2255">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10960,7 +10996,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=154acc91">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=51dc6542">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10971,7 +11007,9 @@ dtype: float64</pre>
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'L1 multinomial logistic'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'l'</span><span class="p">:</span> <span class="n">L_C</span><span class="p">,</span> <span class="s1">'CV accuracy'</span><span class="p">:</span> <span class="n">best_c</span><span class="o">.</span><span class="n">cv_acc</span><span class="p">,</span> <span class="o">**</span><span class="n">res_c</span><span class="p">}}</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="ow">in</span> <span class="n">best_nb</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">summary</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'l'</span><span class="p">:</span> <span class="n">l</span><span class="p">,</span> <span class="s1">'CV accuracy'</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="o">**</span><span class="n">res_nb</span><span class="p">[</span><span class="n">name</span><span class="p">]}</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">summary</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUT_DIR</span><span class="p">,</span> <span class="s1">'multiclass_summary.csv'</span><span class="p">),</span> <span class="n">index_label</span><span class="o">=</span><span class="s1">'model'</span><span class="p">)</span>
+<span class="n">summary</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -11050,7 +11088,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7b19dece">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b54f45ae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -11063,7 +11101,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0daf535f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=45e23106">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -11075,7 +11113,7 @@ dtype: float64</pre>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b9d3bdc8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c7cb375">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -11101,7 +11139,7 @@ $$\left(\frac{1}{2\sigma_l^2} - \frac{1}{2\sigma_k^2}\right)x^2 + \left(\frac{\m
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=adc4292a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7848f5c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -11113,7 +11151,7 @@ $$\left(\frac{1}{2\sigma_l^2} - \frac{1}{2\sigma_k^2}\right)x^2 + \left(\frac{\m
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4a6482d2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e5ca2d93">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -11129,7 +11167,7 @@ $$= \frac{0.8 \times 0.60653}{0.8 \times 0.60653 + 0.2 \times 0.80074} = \frac{0
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=926f879d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0eb01178">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
